@@ -1,0 +1,33 @@
+@use '../abstracts' as *;
+// Typography
+
+html {
+  font-size: $defFontSize;
+  font-family: $fontFamily;
+}
+h1 {
+  font-size: 3.5rem;
+  @include media(mobile) {
+    font-size: 1.75rem;
+  }
+}
+h2 {
+  font-size: 2rem;
+  font-weight: 700;
+
+  letter-spacing: 0.75rem;
+  line-height: 2.25rem;
+  text-transform: uppercase;
+}
+h3 {
+  font-size: 1rem;
+}
+p {
+  font-weight: 700;
+}
+button {
+  text-transform: uppercase;
+  letter-spacing: 0.15rem;
+  font-size: 1rem;
+  font-weight: 700;
+}

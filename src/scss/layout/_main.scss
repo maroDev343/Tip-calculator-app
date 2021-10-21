@@ -1,0 +1,242 @@
+@use '../abstracts' as *;
+@use '../core' as *;
+// Navigations
+
+* {
+  transition: all 0.35s;
+}
+body {
+  background: $neutralLight;
+}
+header {
+  width: 100%;
+  display: flex;
+  justify-content: center;
+
+  margin-top: $spacing;
+  h2 {
+    color: $neutralDark;
+  }
+}
+#container {
+  width: $fixedWidth;
+  height: $fixedHeight;
+  background: $neutralLightest;
+
+  margin: $spacing auto;
+  border-radius: $borderRadius;
+
+  @include flexAround;
+
+  @include media(laptop) {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    width: $fixedWidth / 1.5;
+    height: $fixedHeight * 2;
+  }
+  @include media(tablet) {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    width: $fixedWidth / 2;
+    height: $fixedHeight * 2;
+  }
+  @include media(mobile) {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    width: $fixedWidth / 3.5;
+    height: $fixedHeight * 2;
+  }
+  & > section {
+    width: $innerContentDims;
+    height: $innerContentDims;
+    border-radius: $borderRadius;
+    @include media(mobile) {
+      width: $innerContentDims / 2;
+      height: $innerContentDims * 1.5;
+    }
+  }
+}
+#input {
+  @include flexAround(false);
+  flex-direction: column;
+
+  padding: 2rem;
+
+  @include media(laptop) {
+    text-align: center;
+  }
+  @include media(tablet) {
+    text-align: center;
+  }
+  @include media(mobile) {
+    text-align: center;
+  }
+  & > * {
+    position: relative;
+
+    &:not(:nth-last-of-type(1)) {
+      margin-bottom: 2rem;
+    }
+    & h3 {
+      color: $neutralDark;
+    }
+    & input {
+      width: 100%;
+      height: 3rem;
+      border-radius: $smallBorderRadius;
+      background: $neutralLighter;
+      color: $neutralDark;
+      padding: 0 1rem;
+      margin: $smallSpacing 0;
+      font-size: 1.5rem;
+      border: 1px solid transparent;
+      @include inputReset();
+      &:focus {
+        border-color: $primaryLight;
+      }
+    }
+    & img {
+      position: absolute;
+      top: 57.5%;
+      left: 1rem;
+    }
+  }
+  .tip {
+    h3 {
+      margin-bottom: 1rem;
+    }
+  }
+  .tips {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    grid-template-rows: repeat(2, 1fr);
+    grid-gap: 0.75rem;
+
+    @include media(mobile) {
+      grid-template-columns: repeat(1, 1fr);
+      place-content: center;
+    }
+    $count: 0;
+    @while $count < 7 {
+      // Animated class
+      .activeTip {
+        background: $primaryLight;
+        color: $neutralDarker;
+      }
+
+      .tip-#{$count} {
+        text-align: center;
+        font-size: 1.5rem;
+        font-weight: 700;
+        border-radius: $smallBorderRadius;
+        padding: 0.5rem;
+        cursor: pointer;
+
+        @if ($count == 6) {
+          background: $neutralLighter;
+          letter-spacing: 0.15rem;
+          font-weight: 400;
+          &::placeholder {
+            color: $neutralDark;
+          }
+          @include inputReset();
+          @include media(mobile) {
+            font-size: 1rem;
+          }
+        } @else {
+          transition: $transition;
+          background: $neutralDarker;
+          color: $neutralLightest;
+          &:hover {
+            background: $neutralLight;
+            color: $neutralDarker;
+          }
+        }
+      }
+      $count: $count + 1;
+    }
+  }
+  .number-of-people {
+    position: relative;
+    small {
+      color: red;
+      position: absolute;
+      bottom: -1.25rem;
+      right: 0;
+      font-weight: 400;
+      letter-spacing: 0.15rem;
+      opacity: 0;
+    }
+  }
+}
+#result {
+  background: $neutralDarker;
+
+  display: flex;
+  flex-direction: column;
+  justify-content: space-around;
+  @include media(mobile) {
+    justify-content: space-evenly;
+  }
+  .price {
+    .first-row {
+      @extend .second-row;
+      margin-top: -$spacing + $smallSpacing;
+    }
+    .second-row {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      @include media(mobile) {
+        flex-direction: column;
+      }
+      padding: {
+        top: 0.5rem;
+        left: 2rem;
+        right: 2rem;
+      }
+      .txt {
+        h3 {
+          color: $neutralLighter;
+        }
+        p {
+          color: $neutral;
+        }
+      }
+      .num {
+        color: $primaryLight;
+        .dollar {
+          font-size: 2.25rem;
+        }
+      }
+    }
+  }
+  button {
+    width: 85%;
+    height: 3rem;
+    border-radius: $smallBorderRadius;
+    margin: -3rem auto;
+    transition: $transition;
+  }
+  button.enabled {
+    background: $primaryLight;
+    color: $neutralDarker;
+    cursor: pointer;
+    &:hover {
+      background: $neutralLight;
+      color: $neutralDarker;
+      transform: scaleX(1.05);
+    }
+  }
+  button.disabled {
+    background: $neutral;
+    color: $neutralDarker;
+    cursor: not-allowed;
+  }
+}

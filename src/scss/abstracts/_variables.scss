@@ -1,0 +1,32 @@
+// Variables
+// # Colors
+// Primary
+$primaryLight: hsl(172, 67%, 45%);
+// Neutral
+$neutralDarker: hsl(183, 100%, 15%);
+$neutralDark: hsl(186, 14%, 43%);
+$neutral: hsl(184, 14%, 56%);
+$neutralLight: hsl(185, 41%, 84%);
+$neutralLighter: hsl(189, 41%, 97%);
+$neutralLightest: hsl(0, 0%, 100%);
+
+// # Typography
+$defFontSize: 16px; // Default
+$primaryFontSize: 24px; // form inputs
+$fontFamily: 'Space Mono', monospace; // 400, 700
+
+// # Others
+$fixedWidth: 62.5rem;
+$fixedHeight: 31.25rem;
+$smallSpacing: 0.25rem;
+$spacing: 5rem;
+$smallBorderRadius: 0.3rem;
+$borderRadius: 0.65rem;
+$innerContentDims: 28.125rem;
+$transition: all 0.375s;
+
+// # Breakpoints
+
+// # Custom Prop
+:root {
+}

@@ -1,0 +1,68 @@
+@use '../abstracts/variables' as *;
+
+// Mixins
+@mixin flexAround($align: true) {
+  display: flex;
+  justify-content: space-around;
+  @if $align == true {
+    align-items: center;
+  }
+}
+@mixin inputReset {
+  outline: none;
+  text-align: right;
+  cursor: pointer;
+  appearance: textfield;
+}
+// _____Media Query Manager_____
+
+// 320px  —  480px: Mobile devices
+// 481px  —  768px: iPads, Tablets
+// 769px  —  1024px: Small screens, laptops
+// 1025px  —  1200px: Desktops, large screens
+// 1201px and more —  Extra large screens, TV
+
+@mixin media($breakpoint) {
+  @if $breakpoint == mobile {
+    @media (min-width: 320px) and (max-width: 480px) {
+      @content;
+    }
+  }
+  @if $breakpoint == tablet {
+    @media (min-width: 481px) and (max-width: 768px) {
+      @content;
+    }
+  }
+  @if $breakpoint == laptop {
+    @media (min-width: 769px) and (max-width: 1024px) {
+      @content;
+    }
+  }
+  @if $breakpoint == desktop {
+    @media (min-width: 1025px) and (max-width: 1200px) {
+      @content;
+    }
+  }
+  @if $breakpoint == largeDesktop {
+    @media (min-width: 1201px) {
+      @content;
+    }
+  }
+}
+@mixin list-reset {
+  list-style: none;
+  padding: 0;
+}
+@mixin btn-reset {
+  padding: 0;
+  border: none;
+  outline: none;
+  font: inherit;
+  cursor: pointer;
+}
+@mixin flex($dir: row, $just: space-between, $align: center) {
+  display: flex;
+  flex-direction: $dir;
+  justify-content: $just;
+  align-items: $align;
+}
