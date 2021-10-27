@@ -1,11 +1,12 @@
 # Tip-calculator-app
 
-- Created with Html Css(Sass) Javascript using *vite*🔥
-- Fully responsive and animated
-
-# What you can do
+- Created with Html Sass Javascript using *vite*🔥
 
 - Calculate bills on a number of people with taxs
+
+- Fully responsive and animated
+
+- Additional stuff (hovers, effects, etc...)
 
 # Live
 
@@ -14,4 +15,5 @@
 # Credit
 
 - Inspired by Frontend Mentor
-- website: https://www.frontendmentor.io
+
+- Website: https://www.frontendmentor.io
