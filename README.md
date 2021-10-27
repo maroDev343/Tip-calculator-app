@@ -1,6 +1,6 @@
 # Tip-calculator-app
 
-- Created with Html Css(Sass) Javascript using _vite_🔥
+- Created with Html Css(Sass) Javascript using *vite*🔥
 - Fully responsive and animated
 
 # What you can do
