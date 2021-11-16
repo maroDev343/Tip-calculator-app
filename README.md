@@ -10,7 +10,7 @@
 
 # Live
 
-- https://marodev343-tip-calculator-app.pages.dev
+- https://marodevv-tip-calculator-app.pages.dev
 
 # Credit
 
