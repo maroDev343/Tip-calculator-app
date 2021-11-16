@@ -27,7 +27,7 @@ const clearAllClasses = () => {
   }
 };
 
-// Reseting all inputs;
+// Resetting all inputs;
 const reset = () => {
   total.innerText = '0.00';
   tipAmount.innerText = '0.00';
