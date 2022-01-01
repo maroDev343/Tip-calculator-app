@@ -2,11 +2,13 @@
 
 - Created with Html Sass Javascript using *vite*🔥
 
-- Calculate bills on a number of people with taxs
-
 - Fully responsive and animated
 
-- Additional stuff (hovers, effects, etc...)
+- Additional stuff (hovers, animations, effects, etc...)
+
+- All database linked
+
+-
 
 # Live
 

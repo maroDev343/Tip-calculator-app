@@ -1,4 +1,5 @@
-@use '../abstracts/variables' as *;
+// Mixins
+@use './variables' as *;
 
 // Mixins
 @mixin flexAround($align: true) {

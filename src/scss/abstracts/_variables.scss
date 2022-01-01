@@ -1,8 +1,11 @@
 // Variables
+
 // # Colors
-// Primary
+
+// ## Primary
 $primaryLight: hsl(172, 67%, 45%);
-// Neutral
+
+// ## Neutral
 $neutralDarker: hsl(183, 100%, 15%);
 $neutralDark: hsl(186, 14%, 43%);
 $neutral: hsl(184, 14%, 56%);
@@ -23,4 +26,17 @@ $spacing: 5rem;
 $smallBorderRadius: 0.3rem;
 $borderRadius: 0.65rem;
 $innerContentDims: 28.125rem;
-$transition: all 0.375s;
+
+// # Transitions
+$transition: all 0.35s;
+
+// # Breakpoints
+
+// # Custom Props
+:root {
+  // # Colors
+
+  // # Typography
+
+  // # Others
+}

@@ -1,2 +1,8 @@
+@use './abstracts' as *;
+
 // Link all the layout/files
 @use './layout/main';
+
+body {
+  background: $neutralLight;
+}
