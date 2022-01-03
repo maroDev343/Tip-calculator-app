@@ -2,97 +2,88 @@
 @use '../core' as *;
 // Main
 
+body {
+  background: $neutral__light;
+}
 header {
   width: 100%;
-  display: flex;
-  justify-content: center;
+  @include flex-row(center);
 
-  margin-top: $spacing;
+  margin-top: $lrg__spacing;
   h2 {
-    color: $neutralDark;
+    color: $neutral__dark;
   }
 }
 #container {
-  width: $fixedWidth;
-  height: $fixedHeight;
-  background: $neutralLightest;
+  width: $fixed__width;
+  height: $fixed__height;
+  background: $neutral__lightest;
 
-  margin: $spacing auto;
-  border-radius: $borderRadius;
+  margin: $lrg__spacing auto;
+  border-radius: $med__radius;
 
-  @include flexAround;
+  @include flex-row(space-around, center);
 
-  @include media(laptop) {
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
-    width: $fixedWidth / 1.5;
-    height: $fixedHeight * 2;
+  @include media($br-2) {
+    @include flex-col(center, center);
+    width: $fixed__width / 1.5;
+    height: $fixed__height * 2;
   }
-  @include media(tablet) {
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
-    width: $fixedWidth / 2;
-    height: $fixedHeight * 2;
+  @include media($br-3) {
+    @include flex-col(center, center);
+    width: $fixed__width / 2;
+    height: $fixed__height * 2;
   }
-  @include media(mobile) {
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
-    width: $fixedWidth / 3.5;
-    height: $fixedHeight * 2;
+  @include media($br-4) {
+    @include flex-col(center, center);
+    width: $fixed__width / 3.5;
+    height: $fixed__height * 2;
   }
   & > section {
-    width: $innerContentDims;
-    height: $innerContentDims;
-    border-radius: $borderRadius;
-    @include media(mobile) {
-      width: $innerContentDims / 2;
-      height: $innerContentDims * 1.5;
+    width: $inner__content__dims;
+    height: $inner__content__dims;
+    border-radius: $med__radius;
+    @include media($br-4) {
+      width: $inner__content__dims / 2;
+      height: $inner__content__dims * 1.5;
     }
   }
 }
 #input {
-  @include flexAround(false);
-  flex-direction: column;
+  @include flex-col(space-around); //!
 
-  padding: 2rem;
+  padding: $med__spacing;
 
-  @include media(laptop) {
-    text-align: center;
-  }
-  @include media(tablet) {
-    text-align: center;
-  }
-  @include media(mobile) {
+  @include media($br-2) {
     text-align: center;
   }
   & > * {
     position: relative;
 
     &:not(:nth-last-of-type(1)) {
-      margin-bottom: 2rem;
+      margin-bottom: $med__spacing;
+      @include media($br-4) {
+        margin-bottom: $sml__spacing;
+      }
     }
     & h3 {
-      color: $neutralDark;
+      color: $neutral__dark;
     }
     & input {
       width: 100%;
-      height: 3rem;
-      border-radius: $smallBorderRadius;
-      background: $neutralLighter;
-      color: $neutralDark;
-      padding: 0 1rem;
-      margin: $smallSpacing 0;
+      border-radius: $sml__radius;
+      background: $neutral__lighter;
+      color: $neutral__dark;
+      @include input-reset();
+      padding: 0 $sml__spacing;
+      margin: $sml__spacing 0;
       font-size: 1.5rem;
       border: 1px solid transparent;
-      @include inputReset();
+      text-align: right;
+      appearance: textfield;
+
       &:focus {
-        border-color: $primaryLight;
+        border-color: $primary__light;
       }
       &::-webkit-inner-spin-button,
       &::-webkit-outer-spin-button {
@@ -107,7 +98,7 @@ header {
   }
   .tip {
     h3 {
-      margin-bottom: 1rem;
+      margin-bottom: $sml__spacing;
     }
   }
   .tips {
@@ -116,44 +107,48 @@ header {
     grid-template-rows: repeat(2, 1fr);
     grid-gap: 0.75rem;
 
-    @include media(mobile) {
+    @include media($br-4) {
       grid-template-columns: repeat(1, 1fr);
       place-content: center;
+      grid-gap: $x-sml__spacing;
     }
     $count: 0;
     @while $count < 7 {
       // Animated class
       .activeTip {
-        background: $primaryLight;
-        color: $neutralDarker;
+        background: $primary__light;
+        color: $neutral__darker;
       }
 
       .tip-#{$count} {
         text-align: center;
         font-size: 1.5rem;
         font-weight: 700;
-        border-radius: $smallBorderRadius;
+        border-radius: $sml__radius;
         padding: 0.5rem;
         cursor: pointer;
 
         @if ($count == 6) {
-          background: $neutralLighter;
+          background: $neutral__lighter;
           letter-spacing: 0.15rem;
           font-weight: 400;
           &::placeholder {
-            color: $neutralDark;
+            color: $neutral__dark;
           }
-          @include inputReset();
-          @include media(mobile) {
+          @include input-reset();
+          text-align: center;
+          appearance: textfield;
+
+          @include media($br-4) {
             font-size: 1rem;
           }
         } @else {
-          transition: $transition;
-          background: $neutralDarker;
-          color: $neutralLightest;
+          transition: all $tr;
+          background: $neutral__darker;
+          color: $neutral__lightest;
           &:hover {
-            background: $neutralLight;
-            color: $neutralDarker;
+            background: $neutral__light;
+            color: $neutral__darker;
           }
         }
       }
@@ -174,25 +169,22 @@ header {
   }
 }
 #result {
-  background: $neutralDarker;
+  background: $neutral__darker;
 
-  display: flex;
-  flex-direction: column;
-  justify-content: space-around;
-  @include media(mobile) {
+  @include flex-col(space-around);
+  @include media($br-4) {
+    margin: $sml__spacing;
     justify-content: space-evenly;
   }
   .price {
     .first-row {
       @extend .second-row;
-      margin-top: -$spacing + $smallSpacing;
+      margin-top: -$lrg__spacing + $sml__spacing;
     }
     .second-row {
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
-      @include media(mobile) {
-        flex-direction: column;
+      @include flex-row(space-between, center);
+      @include media($br-4) {
+        @include flex-col(space-between, center);
       }
       padding: {
         top: 0.5rem;
@@ -201,14 +193,14 @@ header {
       }
       .txt {
         h3 {
-          color: $neutralLighter;
+          color: $neutral__lighter;
         }
         p {
           color: $neutral;
         }
       }
       .num {
-        color: $primaryLight;
+        color: $primary__light;
         .dollar {
           font-size: 2.25rem;
         }
@@ -218,23 +210,24 @@ header {
   button {
     width: 85%;
     height: 3rem;
-    border-radius: $smallBorderRadius;
+    border-radius: $sml__radius;
     margin: -3rem auto;
-    transition: $transition;
+    transition: all $tr;
   }
   button.enabled {
-    background: $primaryLight;
-    color: $neutralDarker;
+    background: $primary__light;
+    color: $neutral__darker;
     cursor: pointer;
+    pointer-events: all;
     &:hover {
-      background: $neutralLight;
-      color: $neutralDarker;
+      background: $neutral__light;
+      color: $neutral__darker;
       transform: scaleX(1.05);
     }
   }
   button.disabled {
     background: $neutral;
-    color: $neutralDarker;
-    cursor: not-allowed;
+    color: $neutral__darker;
+    pointer-events: none;
   }
 }

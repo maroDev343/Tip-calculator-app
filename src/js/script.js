@@ -1,32 +1,29 @@
-// Results
+// Variables
 const tipAmount = document.querySelector('.first-row .number');
 const total = document.querySelector('.second-row .number');
-
-// Inputs
 const peopleInput = document.querySelector('.people-input');
 const billInput = document.querySelector('.bill-input');
 const button = document.querySelector('button');
 
+// Flags
 let bill;
 let tipValue;
 let people;
-
 let num = 1;
 let isCustom = false;
 let tipsCount = 6;
 
+// Functions
 // Checks if number argument is a whole num or has decimals
 const hasDecimal = num => {
   return num % 1;
 };
-
 // Removing all * activeTip * class from all * tips *
 const clearAllClasses = () => {
   for (let i = 1; i < tipsCount; i++) {
     document.querySelector(`.tip-${i}`).classList.remove('activeTip');
   }
 };
-
 // Resetting all inputs;
 const reset = () => {
   total.innerText = '0.00';
@@ -42,7 +39,6 @@ const reset = () => {
 
   clearAllClasses();
 };
-
 // Displaying the data
 const displayData = () => {
   if (!bill || !people) {
@@ -66,10 +62,8 @@ const displayData = () => {
         tipAmount.innerText = result.toFixed(2);
       } else {
         if (!hasDecimal(tipValue)) {
-          // console.log('integer!');
           tipAmount.innerText = tipValue + '.00';
         } else {
-          // console.log('not integer');
           tipAmount.innerText = tipValue;
           tipAmount.innerText = Number(tipAmount.innerText).toFixed(2);
         }
@@ -77,7 +71,6 @@ const displayData = () => {
     }
   }
 };
-
 // Getting all input Data
 const getData = () => {
   // Bill
@@ -120,8 +113,8 @@ const getData = () => {
   // Displaying Data
   displayData();
 };
-// on document load
-document.addEventListener('DOMContentLoaded', reset);
 
+// EventListeners
+document.addEventListener('DOMContentLoaded', reset);
 setInterval(getData, 0);
 button.addEventListener('click', reset);

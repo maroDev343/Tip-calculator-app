@@ -3,40 +3,38 @@
 // # Colors
 
 // ## Primary
-$primaryLight: hsl(172, 67%, 45%);
+$primary__light: hsl(172, 67%, 45%);
 
 // ## Neutral
-$neutralDarker: hsl(183, 100%, 15%);
-$neutralDark: hsl(186, 14%, 43%);
+$neutral__darker: hsl(183, 100%, 15%);
+$neutral__dark: hsl(186, 14%, 43%);
 $neutral: hsl(184, 14%, 56%);
-$neutralLight: hsl(185, 41%, 84%);
-$neutralLighter: hsl(189, 41%, 97%);
-$neutralLightest: hsl(0, 0%, 100%);
+$neutral__light: hsl(185, 41%, 84%);
+$neutral__lighter: hsl(189, 41%, 97%);
+$neutral__lightest: hsl(0, 0%, 100%);
 
 // # Typography
-$defFontSize: 16px; // Default
-$primaryFontSize: 24px; // form inputs
-$fontFamily: 'Space Mono', monospace; // 400, 700
+$font__size: 16px;
+$font__family: 'Space Mono', monospace; // 400, 700
 
 // # Others
-$fixedWidth: 62.5rem;
-$fixedHeight: 31.25rem;
-$smallSpacing: 0.25rem;
-$spacing: 5rem;
-$smallBorderRadius: 0.3rem;
-$borderRadius: 0.65rem;
-$innerContentDims: 28.125rem;
+$fixed__width: 62.5rem;
+$fixed__height: 31.25rem;
+$inner__content__dims: 28.125rem;
+$x-sml__spacing: 0.25rem;
+$sml__spacing: 1rem;
+$med__spacing: 2rem;
+$lrg__spacing: 5rem;
+$sml__radius: 0.3rem;
+$med__radius: 0.65rem;
 
 // # Transitions
-$transition: all 0.35s;
+$dur: 0.25s;
+$eff: cubic-bezier(0.65, 0.05, 0.36, 1); // easeInOutCubic
+$tr: $dur $eff;
 
 // # Breakpoints
-
-// # Custom Props
-:root {
-  // # Colors
-
-  // # Typography
-
-  // # Others
-}
+$br-1: 1200;
+$br-2: 1024;
+$br-3: 768;
+$br-4: 480;

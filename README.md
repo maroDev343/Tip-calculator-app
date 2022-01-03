@@ -8,8 +8,6 @@
 
 - All database linked
 
--
-
 # Live
 
 - https://marodevv-tip-calculator-app.pages.dev

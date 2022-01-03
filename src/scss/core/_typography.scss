@@ -3,16 +3,16 @@
 
 // # Basics
 html {
-  font-size: $defFontSize;
+  font-size: $font__size;
 }
 body {
-  font-family: $fontFamily;
+  font-family: $font__family;
 }
 
 // # Headings | paragraphs | etc..
 h1 {
   font-size: 3.5rem;
-  @include media(mobile) {
+  @include media($br-4) {
     font-size: 1.75rem;
   }
 }
@@ -30,11 +30,13 @@ h3 {
 p {
   font-weight: 700;
 }
-
-// # Specifics
 button {
   text-transform: uppercase;
   letter-spacing: 0.15rem;
   font-size: 1rem;
   font-weight: 700;
+}
+
+// # Icons
+i {
 }
