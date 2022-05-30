@@ -1,16 +1,17 @@
 # Tip-calculator-app
 
-- Fully responsive & animated
+## Tech used with *vite*🔥:
 
-- Tech used with *vite*🔥:
-  Html
-  Sass
-  Javascript
+> Frontend
 
-# Live
+-   Html
+-   Sass
+-   Javascript
 
-- https://marodevv-tip-calculator-app.vercel.app
+## Live
 
-# Credit
+> https://marodevv-tip-calculator-app.vercel.app
 
-- Inspired by Frontend Mentor
+## Credit
+
+> Inspired by Frontend Mentor
