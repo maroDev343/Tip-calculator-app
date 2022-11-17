@@ -10,7 +10,7 @@
 
 ## Live
 
-> https://marodevv-tip-calculator-app.vercel.app
+> https://marwanmodev-tip-calculator-app.vercel.app
 
 ## Credit
 
